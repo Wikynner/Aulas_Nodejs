@@ -45,4 +45,34 @@ const novoUsuario = async (req, res) => {
   res.redirect('/');
 };
 
-module.exports = {  novoUsuario,nome,idadeForm,idadeAction };
+const addIdade = async (req,res) =>{
+  let id = req.params.id;
+    let results = await User.findAll({where:{id}});
+    if(results.length > 0){
+      let usuario = results[0];
+      usuario.age++;
+      await usuario.save();
+  }
+  res.redirect('/');
+
+}
+const diminuirIdade =async (req,res) =>{
+  let id = req.params.id;
+  let results = await User.findAll({where:{id}});
+  if(results.length > 0){
+    let usuario = results[0];
+    usuario.age--;
+    await usuario.save();
+}
+  res.redirect('/');
+
+}
+const excluir = async (req,res) =>{
+   let id = req.params.id;
+
+   await User.destroy({where:{id}});
+
+  res.redirect('/');
+
+}
+module.exports = {  novoUsuario,nome,idadeForm,idadeAction,addIdade,diminuirIdade,excluir };

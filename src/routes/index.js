@@ -10,6 +10,10 @@ router.get('/',HomeController.home);
 router.get('/contato', InfoController.contato);
 router.post('/novousuario', HomeController.novoUsuario)
 
+router.get('/usuario/:id/mais',userController.addIdade);
+router.get('/usuario/:id/menos',userController.diminuirIdade);
+router.get('/usuario/:id/excluir',userController.excluir);
+
 router.get('/sobre', InfoController.sobre);
 
 router.get('/nome',userController.nome);

@@ -18,19 +18,43 @@ Opa {{name}} {{lastName}}, tudo bem?
         <input type="submit" value="Inserir Usuário" />
     </form>
 </fieldset>
+<h2>Usuários do banco</h2>
+<table>
+    <thead>
+        <tr>
+            <th> Nome  </th>
+            <th> Idade </th>
+            <th> MAIS </th>
+            <th> MENOS </th>
+            <th> EXCLUIR </th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#users}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{age}}</td>
+            <td><a href="/usuario/{{id}}/mais"> + </a> </td>
+            <td><a href="/usuario/{{id}}/menos"> - </a> </td>
+            <td><a href="/usuario/{{id}}/excluir">excluir</a> </td>
+        </tr>
+        {{/users}}
+    </tbody>
+</table>
 
+<!--
 <h2>Usuários do banco</h2>
 <ul>
     {{#users}}
         <li>{{name}}
-         - Idade: {{age}}
-         - <a href="/usuario/{{id}}/mais">+</li></a>
-         - <a href="/usuario/{{id}}/menos">-</li></a>
-         - <a href="/usuario/{{id}}/Excluir">excluir</a>
+          Idade: {{age}}
+          <a href="/usuario/{{id}}/mais"> + </a>
+          <a href="/usuario/{{id}}/menos"> - </a>
+          <a href="/usuario/{{id}}/excluir">excluir</a>
          </li>
     {{/users}}
 </ul>
-
+-->
 <hr/>
 <h2>Produtos</h2>
 <ul>

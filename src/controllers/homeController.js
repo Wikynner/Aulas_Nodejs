@@ -4,6 +4,13 @@ const User = require('../models/User');
 const { Op, where } = require('sequelize');
 
 const home = async (req, res) => {
+
+// let results = await User.findAll({where : {id: 7 }});
+// if(results.length > 0 ){
+//   let usuario = results[0];
+//   usuario.age = 70;
+//   await usuario.save();
+// }
   let users = await User.findAll();
     // Business logic
     let age = 90;
