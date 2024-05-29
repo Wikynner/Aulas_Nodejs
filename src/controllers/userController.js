@@ -2,42 +2,33 @@ const { Op } = require('sequelize');
 const User = require('../models/User');
 const Product = require('../models/Product');
 
-const home = async (req, res) => {
-  try {
-    // Fetch all users from the User model
-    let users = await User.findAll({
-      where: {
-        age: {
-          [Op.gte]: 18
-        }
-      },
-      order: [
-        ['name', 'DESC']
-      ]
-    });
 
-    // Business logic
-    let age = 90;
-    let showOld = age > 50;
+const nome = (res,req) =>{
+  nome = req.query.nome;
+  idade = req.query.idade;
+  res.render('pages/nome',{
+    nome,
+    idade
+  });
+};
+const idadeForm = (req, res) => {
+  res.render('pages/idade');
+}
+const idadeAction = async (req, res) => {
+  let mostrarIdade = false;
+  let idade = 0;
 
-    // Ensure methods are called properly
-    let list = await Product.getAll(); // Call the method as a function
-    let expensiveList = await Product.getFromPriceAfter(12); // Pass the price parameter and call the method
-
-    // Render the home page with the fetched data
-    res.status(200).render('pages/home', {
-      name: 'Wikynner',
-      lastName: 'Soares',
-      showOld,
-      products: list,
-      expensives: expensiveList,
-      frasesDoDia: ["Live as if you were to die tomorrow. Learn as if you were to live forever."],
-      users
-    });
-  } catch (error) {
-    console.error('Error fetching data or rendering page:', error);
-    res.status(500).send('Internal Server Error');
+  if(req.body.ano) {
+      let anoNascimento = parseInt(req.body.ano);
+      let anoAtual = new Date().getFullYear();
+      idade = anoAtual - anoNascimento;
+      mostrarIdade = true;
   }
+
+  res.render('pages/idade', {
+      idade,
+      mostrarIdade
+  });
 };
 
 const novoUsuario = async (req, res) => {
@@ -54,4 +45,4 @@ const novoUsuario = async (req, res) => {
   res.redirect('/');
 };
 
-module.exports = { home, novoUsuario };
+module.exports = {  novoUsuario,nome,idadeForm,idadeAction };

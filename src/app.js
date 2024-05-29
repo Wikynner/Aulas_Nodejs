@@ -6,7 +6,7 @@ const mainRoutes = require('./routes/index'); // Importa as rotas node/src/route
 
 dotenv.config();
 
-const app = express;
+const app = express();
 
 app.set('view engine','mustache');
 app.set('views', path.join(__dirname,'./views'));

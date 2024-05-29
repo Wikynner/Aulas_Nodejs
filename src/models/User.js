@@ -1,36 +1,28 @@
 const { Model, DataTypes } = require('sequelize');
 const { sequelize, mysql_teste } = require('../instances/mysql');
 
-/**
- * @typedef {Object} UserInstance
- * @property {number} id - The unique identifier for a user.
- * @property {string} name - The name of the user.
- * @property {number} age - The age of the user.
- */
+class User extends Model {}
 
-/**
- *
- */
-const User = mysql_teste.define('User', {
+User.init({
     id: {
         primaryKey: true,
         type: DataTypes.INTEGER,
-        autoIncrement: true,  // Ensure id is auto increment
+        autoIncrement: true,
         allowNull: false
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false  // Make name required
+        allowNull: false
     },
     age: {
         type: DataTypes.INTEGER,
         defaultValue: 18
     }
 }, {
+    sequelize,
+    modelName: 'User',
     tableName: 'users',
-    timestamps: false  // Correct spelling of timestamps
+    timestamps: false
 });
 
-module.exports ={ User,
-    mysql_teste,sequelize
-}
+module.exports = User;

@@ -4,7 +4,7 @@ const User = require('../models/User');
 const { Op, where } = require('sequelize');
 
 const home = async (req, res) => {
-
+  let users = await User.findAll();
     // Business logic
     let age = 90;
     let showOld = false;
@@ -12,20 +12,18 @@ const home = async (req, res) => {
     if (age > 50) {
       showOld = true;
     }
-
-    // Ensure methods are called properly
-    let list = Product.getAll; // Call the method as a function
-    let expensiveList = Product.getFromPriceAfter; // Pass the price parameter and call the method
-
-    // Render the home page with the fetched data
+  
+    let list = Product.getAll(); 
+    let expensiveList = Product.getFromPriceAfter(12);
+   
     res.status(200).render('pages/home', {
       name: 'Wikynner',
       lastName: 'Soares',
       showOld,
       Product: list,
       expensive: expensiveList,
-      fraseDoDia: ["Live as if you were to die tomorrow. Learn as if you were to live forever."]
-      // users
+      fraseDoDia: ["Live as if you were to die tomorrow. Learn as if you were to live forever."],
+      users
     });
 };
 
