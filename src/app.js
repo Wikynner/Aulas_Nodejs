@@ -17,11 +17,7 @@ app.engine('mustache',mustache());
  app.use(express.static(path.join(__dirname, './public')));
 
 app.use(express.urlencoded({extended: true}));
-// Descomente e configure esses middlewares conforme necessário
-// const cors = require('cors');
-// app.use(cors());
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: false }));
+
 
 // Usa as rotas importadas
 app.use('/', mainRoutes);  
