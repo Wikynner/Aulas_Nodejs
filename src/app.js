@@ -14,7 +14,7 @@ app.engine('mustache',mustache());
 
 
 //console.log(path.join(__dirname));
- app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, './public')));
 
 app.use(express.urlencoded({extended: true}));
 

@@ -9,20 +9,23 @@ Opa {{name}} {{lastName}}, tudo bem?
 {{/showOld}}
 
 <hr/>
-
 <fieldset>
-    <legend>Novo Usuário</legend>
+   
+
+    <legend >Novo Usuário</legend>
     <form method="POST" action="/novousuario">
         <input type="text" name="name" placeholder="Digite um nome" /><br/><br/>
         <input type="text" name="age" placeholder="Digite uma idade" /><br/><br/>
         <input type="submit" value="Inserir Usuário" />
+        
     </form>
 </fieldset>
-<h2>Usuários do banco</h2>
+<h2 class="text-blue-500">Usuários do banco</h2>
+
 <table>
     <thead>
         <tr>
-            <th> Nome  </th>
+            <th > Nome  </th>
             <th> Idade </th>
             <th> MAIS </th>
             <th> MENOS </th>
@@ -34,9 +37,14 @@ Opa {{name}} {{lastName}}, tudo bem?
         <tr>
             <td>{{name}} </td>
             <td>{{age}}</td>
-            <td><a href="/usuario/{{id}}/mais"> + </a> </td>
-            <td><a href="/usuario/{{id}}/menos"> - </a> </td>
-            <td><a href="/usuario/{{id}}/excluir">excluir</a> </td>
+            <td>
+            <a href="/usuario/{{id}}/mais"><button name="button">+</button> </td>
+            <td>
+                
+                <a href="/usuario/{{id}}/menos"> <input type="submit" value="-" /> </a> 
+                
+            </td>
+            <td><a href="/usuario/{{id}}/excluir" ><button name="button">Excluir</button></a> </td>
         </tr>
         {{/users}}
     </tbody>
@@ -56,7 +64,7 @@ Opa {{name}} {{lastName}}, tudo bem?
 </ul>
 -->
 <hr/>
-<h2>Produtos</h2>
+<h2 >Produtos</h2>
 <ul>
     {{#products}}
         {{>partials/productItem}}
@@ -78,7 +86,7 @@ Opa {{name}} {{lastName}}, tudo bem?
         <li>{{.}}</li>
     {{/frasesDoDia}}
     {{^frasesDoDia}}
-        Não há frases motivacionais hoje.
+       <h1 class="text-red-950"> Não há frases motivacionais hoje.</h1>
     {{/frasesDoDia}}
 </ul>
 
