@@ -1,3 +1,12 @@
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título da Página</title>
+    <link rel="stylesheet" href="../../input.css">
+</head>
+<body class="bg-green-400">
+
 {{>partials/header}}
 
 Opa {{name}} {{lastName}}, tudo bem?
@@ -12,7 +21,7 @@ Opa {{name}} {{lastName}}, tudo bem?
 <fieldset>
    
 
-    <legend >Novo Usuário</legend>
+    <legend class="text-red-950 bg-green-400 ">Novo Usuário</legend>
     <form method="POST" action="/novousuario">
         <input type="text" name="name" placeholder="Digite um nome" /><br/><br/>
         <input type="text" name="age" placeholder="Digite uma idade" /><br/><br/>
@@ -91,3 +100,6 @@ Opa {{name}} {{lastName}}, tudo bem?
 </ul>
 
 {{>partials/footer}}
+</body>
+
+</html>

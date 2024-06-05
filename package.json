@@ -1,11 +1,11 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "../node/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon -e json,mustache ./src/app.js",
-    "build:css": "tailwindcss -i C:/projeto/node/src/input.css -o C:/projeto/node/dist/output --watch"
+    "start": "nodemon -e json,mustache,html ./src/app.js",
+    "build:css": "tailwindcss -i src/input.css -o dist/output.css --watch"
   },
   "keywords": [],
   "author": "",
